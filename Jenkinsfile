@@ -4,6 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
+                    echo 'Starting Checkout...'
                     checkout([$class: 'GitSCM', 
                         branches: [[name: '*/main']], 
                         userRemoteConfigs: [[
@@ -11,6 +12,7 @@ pipeline {
                             credentialsId: 'Git' // Replace this with actual ID
                         ]]
                     ])
+                    echo 'Checkout completed.'
                 }
             }
         }
