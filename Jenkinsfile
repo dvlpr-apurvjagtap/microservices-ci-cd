@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/dvlpr-apurvjagtap/microservices-ci-cd.git'
+                git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/dvlpr-apurvjagtap/microservices-ci-cd.git'
             }
         }
 
