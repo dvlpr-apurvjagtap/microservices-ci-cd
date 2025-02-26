@@ -4,19 +4,25 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/yourusername/microservices-ci-cd.git'
+                git 'https://github.com/dvlpr-apurvjagtap/microservices-ci-cd.git'
             }
         }
 
         stage('Build Backend') {
             steps {
-                sh 'docker build -t backend ./backend'
+                sh 'docker build -t microservices-ci-cd-backend ./backend'
             }
         }
 
         stage('Build Frontend') {
             steps {
-                sh 'docker build -t frontend ./frontend'
+                sh 'docker build -t microservices-ci-cd-frontend ./frontend'
+            }
+        }
+
+        stage('Test Docker Containers') {
+            steps {
+                sh 'docker images'
             }
         }
 
